@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090814">
+<title>five months</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+@property --c1{syntax:"<color>";inherits:true;initial-value:#090814}
+@property --c2{syntax:"<color>";inherits:true;initial-value:#170e2e}
+@property --g{syntax:"<color>";inherits:true;initial-value:transparent}
+@property --gx{syntax:"<percentage>";inherits:true;initial-value:50%}
+@property --gy{syntax:"<percentage>";inherits:true;initial-value:30%}
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--ink:#d8d1ea;--mute:#9a92b8;--fm:#8da6dc;--amber:#e9b872}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+html:has(body.lock){overflow:hidden}
+html,body{margin:0;background:#090814}
+body{color:var(--ink);font:300 1rem/1.6 Inter,system-ui,sans-serif;overflow-x:hidden;
+ --c1:#090814;--c2:#170e2e;--g:rgba(120,90,200,.10);--gx:50%;--gy:30%;
+ transition:--c1 2s,--c2 2s,--g 2s,--gx 2s,--gy 2s}
+body.lock{overflow:hidden;height:100svh}
+body[data-sc="1"]{--c1:#0c0b1f;--c2:#1d1440;--g:rgba(110,100,190,.16);--gx:15%;--gy:70%}
+body[data-sc="2"]{--c1:#0e0710;--c2:#26102a;--g:rgba(230,160,80,.07);--gx:50%;--gy:30%}
+body[data-sc="2"].lit{--g:rgba(235,165,85,.30)}
+body[data-sc="3"]{--c1:#120a26;--c2:#2c1650;--g:rgba(150,120,220,.16);--gx:85%;--gy:40%}
+body[data-sc="4"]{--c1:#06080f;--c2:#0d1020;--g:rgba(235,170,90,.14);--gx:25%;--gy:55%}
+body[data-sc="5"]{--c1:#130d22;--c2:#2a2040;--g:rgba(140,160,215,.12);--gx:50%;--gy:50%}
+body[data-sc="6"]{--c1:#170c26;--c2:#3a1d3f;--g:rgba(240,180,110,.16);--gx:50%;--gy:90%}
+body[data-sc="7"]{--c1:#050409;--c2:#0a0713;--g:rgba(120,150,220,.07);--gx:50%;--gy:55%}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(70% 55% at var(--gx) var(--gy),var(--g),transparent 70%),linear-gradient(180deg,var(--c1),var(--c2))}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.stem{position:fixed;left:max(14px,env(safe-area-inset-left,0px));top:0;width:1px;height:calc(var(--p,0)*100%);background:linear-gradient(rgba(141,166,220,0),rgba(141,166,220,.4));transition:opacity 2s;pointer-events:none}
+body[data-sc="7"] .stem{opacity:0}
+section{min-height:100vh;min-height:100svh;padding:20svh 9vw;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;position:relative}
+.L{align-items:flex-start}.R{align-items:flex-end;text-align:right}.C{align-items:center;text-align:center}
+section>*{max-width:30rem}
+.big{font:400 clamp(1.7rem,6.4vw,2.5rem)/1.22 "Cormorant Garamond",Georgia,serif;margin:0;letter-spacing:.005em}
+.mid{font:400 clamp(1.25rem,4.6vw,1.6rem)/1.35 "Cormorant Garamond",Georgia,serif;margin:0;color:var(--ink)}
+.sm{font-size:.92rem;color:var(--mute);margin:0;letter-spacing:.015em}
+.sm.dim{opacity:.7;font-size:.8rem}
+.r{opacity:0;transform:translateY(14px);transition:opacity 1.4s ease,transform 1.4s ease}
+.r.in{opacity:1;transform:none}
+.h{display:none}.h.show{display:block}
+#open{min-height:100vh;min-height:100svh;padding:0 9vw;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
+#open p{font:400 clamp(1.4rem,5.2vw,2rem)/1.3 "Cormorant Garamond",Georgia,serif;margin:0;max-width:26rem;min-height:1.3em}
+.caret{display:inline-block;width:1px;height:1em;background:var(--mute);margin-left:2px;vertical-align:-.12em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:1px solid var(--fm);outline-offset:4px}
+.back{font:inherit;color:#c7b9f2;border-bottom:1px solid rgba(199,185,242,.6);padding:0;animation:pu 2.6s ease-in-out infinite}
+@keyframes pu{50%{opacity:.55}}
+.tap{border:1px solid rgba(200,190,235,.32);padding:.7rem 1.15rem;border-radius:999px;font-size:.78rem;letter-spacing:.1em;text-transform:lowercase;color:var(--ink);transition:background .4s,border-color .4s}
+.tap:hover{background:rgba(200,190,235,.08)}
+.tap[disabled]{opacity:.5;cursor:default}
+.lamp{width:1.1rem;height:1.1rem;border-radius:50%;background:#3a2a2a;box-shadow:0 0 0 10px rgba(233,184,114,.04);transition:all 1.4s;padding:0;margin:.4rem 0}
+body.lit .lamp{background:var(--amber);box-shadow:0 0 22px 6px rgba(233,184,114,.55),0 0 0 10px rgba(233,184,114,.08)}
+.msg{font:400 .98rem/1.5 Inter,sans-serif;letter-spacing:.02em;margin:0;color:var(--ink)}
+.msg b{font-weight:400;border-bottom:1px dashed rgba(216,209,234,.5);transition:all .8s;cursor:pointer;background:none;border-top:0;border-left:0;border-right:0;color:inherit;padding:0;font-size:inherit}
+.msg b.x{text-decoration:line-through;border-color:transparent;opacity:.45}
+.dav{font:inherit;color:inherit;transition:all 1.6s;padding:0;border-bottom:1px dotted var(--mute)}
+.dav.dim{opacity:.12;filter:blur(3px);border-color:transparent}
+.warm{font:400 clamp(2rem,8vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;color:var(--amber);margin:0;text-shadow:0 0 28px rgba(233,184,114,.28)}
+.fm{width:42px;height:42px;opacity:0;transform:scale(.2) rotate(-35deg);transition:all 2.4s cubic-bezier(.2,.7,.2,1);margin:.4rem 0}
+.fm.in{opacity:.85;transform:none}
+.fm.lg{width:84px;height:84px}
+#awo p{margin:.2rem 0}
+#end{font:400 clamp(1.5rem,5.8vw,2.2rem)/1.3 "Cormorant Garamond",Georgia,serif;margin:0;opacity:0;transition:opacity 3.5s ease 1.2s}
+#end.in{opacity:1}
+.restart{position:absolute;bottom:calc(5svh + env(safe-area-inset-bottom,0px));left:0;right:0;margin:auto;width:max-content;font-size:.72rem;letter-spacing:.12em;color:var(--mute);opacity:0;animation:fi 3s ease 9s forwards}
+@keyframes fi{to{opacity:.4}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;transition-delay:0s!important}.r{transform:none}}
+</style>
+</head>
+<body class="lock" data-sc="0">
+<div class="bg"></div><div class="grain"></div><div class="stem"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="f" viewBox="0 0 40 40"><g fill="#8da6dc"><circle cx="20" cy="9.5" r="7"/><circle cx="30" cy="16.8" r="7"/><circle cx="26.2" cy="28.6" r="7"/><circle cx="13.8" cy="28.6" r="7"/><circle cx="10" cy="16.8" r="7"/></g><circle cx="20" cy="20" r="3.4" fill="#e9c98a"/></symbol></defs></svg>
+
+<div id="open" aria-live="polite"></div>
+
+<section id="s1" data-i="1" class="L">
+<p class="big r">it got easy really fast.</p>
+<p class="mid r">like, weirdly fast. we talked like we’d known each other for months.</p>
+<p class="mid r">then we agreed to do face reveals.</p>
+<p class="sm r">I was so nervous. I was bald, and I did not look good bald. I’m not gonna lie to you.</p>
+<p class="sm r">so I’m sitting there, trying to get brave. and then you sent videos.</p>
+<p class="mid r">so. many. videos. you, your family, everyone.</p>
+<p class="sm r">I was not ready. I was still getting my bald head ready, and you came in with a full documentary.</p>
+<p class="mid r">and I genuinely thought: this is a catfish.</p>
+<p class="sm r">like, who sends this many videos on day one? that’s what a catfish would do. (that’s what I thought, anyway.)</p>
+<p class="sm r">then you sent voice messages. then your Instagram story archives. little by little, I trusted you.</p>
+<p class="sm r">I told you later what I thought. sorry about that. I’d do it again though.</p>
+<svg class="fm" aria-hidden="true"><use href="#f"/></svg>
+</section>
+
+<section id="s2" data-i="2" class="C">
+<p class="mid r">then came the time I realized I see you that way.</p>
+<p class="sm r">bad timing, honestly. I was still sad about my breakup and my head was a mess.</p>
+<p class="mid r">you noticed. you asked what was wrong. you listened.</p>
+<p class="sm r">and then you sang Wildflower for me. Billie Eilish. like it was nothing.</p>
+<button class="lamp r" id="lamp" aria-label="turn on the light"></button>
+<p class="sm dim r" id="lh">(tap the light)</p>
+<p class="big h r" id="wq">I didn’t realize how badly I needed that song.</p>
+</section>
+
+<section id="s3" data-i="3" class="R">
+<p class="mid r">so I told you I liked you. casually. no pressure.</p>
+<p class="sm r">I even said we could stay friends if you didn’t feel the same. very mature of me.</p>
+<button class="tap r" id="wait">wait a few days</button>
+<p class="msg h r" id="cm">OKAYY JS A LIL CRUSH THATS ALL BYEEEE <b id="gone" role="button" tabindex="0">IT WILL GO AWAY SOON</b></p>
+<p class="sm dim h r" id="gh">(that last part. tap it.)</p>
+<p class="big h r" id="gone2">it’s been five months. still waiting for it to go away.</p>
+<p class="sm h r" id="gone3">I read that message and thought: ok, so we’re finally getting together, right? (we were.)</p>
+<svg class="fm" aria-hidden="true"><use href="#f"/></svg>
+</section>
+
+<section id="s4" data-i="4" class="L">
+<p class="mid r">one night you were teasing me about <button class="dav" id="dav">David</button>. on purpose. I know it was on purpose.</p>
+<p class="sm r" id="dh">(you can tap him, if you want.)</p>
+<p class="sm r">I was in bed, about to sleep.</p>
+<p class="warm h r" id="n143">I 143 you</p>
+<p class="mid h r" id="n143b">I blushed so hard. then I went to sleep smiling like an idiot.</p>
+<p class="sm h r" id="n143c">and in the morning I told you how happy it made me. just a small message at night. it meant a lot more than it looked.</p>
+</section>
+
+<section id="s5" data-i="5" class="C">
+<p class="mid r">mostly though, it’s the regular stuff.</p>
+<p class="sm r">you’re goofy. you’re sarcastic. you’re kind, and you never make it a big deal.</p>
+<p class="sm r">you sing really well. when I sing, you judge me like a teacher.</p>
+<p class="sm r">when I overthink, you don’t roll your eyes. you actually help me.</p>
+<p class="sm r">you tell me “you’re not weak.” you tell me to do the thing, because it’ll build my career.</p>
+<p class="sm r">and sometimes you just say “you’re a man.” which is motivating and a little rude at the same time.</p>
+<p class="mid r">it’s a lot less lonely here now.</p>
+<svg class="fm" aria-hidden="true"><use href="#f"/></svg>
+</section>
+
+<section id="s6" data-i="6" class="L">
+<p class="big r">we haven’t actually met yet.</p>
+<p class="mid r">but I’ve daydreamed about it way more than I’ll admit.</p>
+<p class="sm r">one version: I show up on your roof. that’s the whole plan.</p>
+<p class="sm r">another: I show up at your school and surprise you. you’d scream a little. I’d deserve it.</p>
+<p class="mid r">in real life it’ll probably be awkward.</p>
+<button class="tap r" id="sil">silence</button>
+<div id="awo" class="mid"></div>
+<div class="h r" id="after">
+<p class="mid">and then one of us would say something stupid, and we’d go back to being ourselves.</p>
+<p class="sm" style="margin-top:1.2rem">sit next to you. talk about nothing. laugh at something ridiculous. no screen in the middle.</p>
+<p class="sm" style="margin-top:.8rem">I can’t tell how everything will go. nobody can. I’m not asking for promises. I just hope we get to find out.</p>
+</div>
+</section>
+
+<section id="s7" data-i="7" class="C">
+<svg class="fm lg" aria-hidden="true"><use href="#f"/></svg>
+<p id="end">Yeah... that’s all. My heart belongeth to thee.</p>
+<button class="restart" id="rs">start over</button>
+</section>
+
+<script>
+history.scrollRestoration='manual';scrollTo(0,0);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sleep=ms=>new Promise(r=>setTimeout(r,rm?0:ms));
+const show=e=>{e.classList.add('show');requestAnimationFrame(()=>requestAnimationFrame(()=>e.classList.add('in')))};
+const lines=[["five months ago, we didn’t know each other.",1000],["which is kinda weird to think about now.",1100],["anyway.",1300],["let’s go back for a bit.",0]];
+(async()=>{
+ await sleep(1200);
+ const box=$('#open');
+ for(const [t,p] of lines){
+  const el=document.createElement('p');box.appendChild(el);
+  const cur=document.createElement('i');cur.className='caret';el.appendChild(cur);
+  for(const ch of t){cur.before(ch);await sleep(18+Math.random()*34+(',.'.includes(ch)?150:0));}
+  if(p)cur.remove();
+  await sleep(p);
+ }
+ const last=box.lastChild;
+ last.innerHTML='let’s go <button class="back">back</button> for a bit.';
+ last.querySelector('button').onclick=()=>$('#s1').scrollIntoView({behavior:rm?'auto':'smooth'});
+ document.body.classList.remove('lock');
+})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.4});
+$$('.r,.fm,#end').forEach(e=>io.observe(e));
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.body.dataset.sc=e.target.dataset.i}),{rootMargin:'-50% 0px -50% 0px'});
+$$('section').forEach(s=>so.observe(s));
+let tk=0;addEventListener('scroll',()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;const m=document.documentElement.scrollHeight-innerHeight;document.documentElement.style.setProperty('--p',m>0?scrollY/m:0)})},{passive:true});
+$('#lamp').onclick=()=>{document.body.classList.toggle('lit');show($('#wq'));$('#lh').style.opacity=0};
+$('#wait').onclick=function(){this.style.display='none';show($('#cm'));setTimeout(()=>show($('#gh')),rm?0:1500)};
+const gone=$('#gone');
+const strike=()=>{gone.classList.add('x');$('#gh').style.opacity=0;show($('#gone2'));setTimeout(()=>show($('#gone3')),rm?0:2000)};
+gone.onclick=strike;gone.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();strike()}};
+$('#dav').onclick=async function(){
+ this.classList.add('dim');$('#dh').style.opacity=0;
+ await sleep(1200);show($('#n143'));await sleep(1800);show($('#n143b'));await sleep(1800);show($('#n143c'));
+};
+const aw=["…","hi.","so. um. hi.","I had something planned. it’s gone."];let ai=0;
+$('#sil').onclick=function(){
+ const p=document.createElement('p');p.textContent=aw[ai++];$('#awo').appendChild(p);
+ this.textContent='say something';
+ if(ai>=aw.length){this.style.display='none';setTimeout(()=>show($('#after')),rm?0:1400)}
+};
+$('#rs').onclick=()=>{scrollTo(0,0);location.reload()};
+</script>
+</body>
+</html>
